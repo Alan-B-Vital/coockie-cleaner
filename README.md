@@ -2,19 +2,19 @@
 
 Pequeno projeto para limpar os cookies da aba ativa
 
-Instalação
-Chrome:
-Acesse: chrome://extensions
+*Instalação*
+*Chrome*:
+1. Acesse: chrome://extensions
 
-Ative o Modo de desenvolvedor
+2. Ative o Modo de desenvolvedor
 
-Clique em "Carregar sem compactação"
+3. Clique em "Carregar sem compactação"
 
-Selecione a pasta da extensão
+4. Selecione a pasta da extensão
 
-Firefox:
-Acesse: about:debugging
+*Firefox*:
+1. Acesse: about:debugging
 
-Clique em "Carregar Add-on Temporário"
+2. Clique em "Carregar Add-on Temporário"
 
-Selecione o manifest.json
+3. Selecione o manifest.json
