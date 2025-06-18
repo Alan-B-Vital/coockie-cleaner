@@ -20,3 +20,25 @@ document.getElementById('clearCookies').addEventListener('click', async () => {
 
   alert(`Cookies do domínio ${domain} foram limpos.`);
 });
+
+document.getElementById('copyAuthToken').addEventListener('click', async () => {
+  let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+  if (!tab || !tab.url) return;
+
+  let url = new URL(tab.url);
+  let domain = url.hostname;
+
+  chrome.cookies.getAll({ domain: domain }, (cookies) => {
+    let targetCookie = cookies.find(cookie => cookie.name === '_authTokenId');
+    if (targetCookie) {
+      navigator.clipboard.writeText(targetCookie.value).then(() => {
+        alert(`Token copiado:\n${targetCookie.value}`);
+      }).catch(err => {
+        console.error('Erro ao copiar para a área de transferência:', err);
+        alert('Erro ao copiar o token.');
+      });
+    } else {
+      alert('Cookie "_authTokenId" não encontrado nesta aba.');
+    }
+  });
+});
